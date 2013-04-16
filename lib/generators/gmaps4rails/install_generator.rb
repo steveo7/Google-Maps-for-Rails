@@ -6,7 +6,7 @@ module Gmaps4rails
       desc 'Creates a Gmaps4rails initializer and copies the assets to the public folder.'
 
       def copy_locale
-        if Rails::VERSION::MINOR >= 1
+        if Rails::VERSION::MINOR >= 0
           copy_file "#{source_assets_base_path}gmaps4rails.base.js.coffee",       "#{destination_assets_base_path}gmaps4rails.base.js.coffee"
           copy_file "#{source_assets_base_path}gmaps4rails.googlemaps.js.coffee", "#{destination_assets_base_path}gmaps4rails.googlemaps.js.coffee"
           copy_file "#{source_assets_base_path}gmaps4rails.openlayers.js.coffee", "#{destination_assets_base_path}gmaps4rails.openlayers.js.coffee"
