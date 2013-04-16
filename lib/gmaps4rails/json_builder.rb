@@ -53,6 +53,11 @@ module Gmaps4rails
       true
     end
 
+    def labelContent(string)
+      @json_hash[:labelContent] = string
+      true
+    end
+
     def sidebar(string)
       @json_hash[:sidebar] = string
       true
