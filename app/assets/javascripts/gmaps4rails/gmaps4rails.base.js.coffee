@@ -270,7 +270,7 @@ class @Gmaps4Rails
           "marker_width":     if @markers[index].width    then @markers[index].width   else @markers_conf.width
           "marker_height":    if @markers[index].height   then @markers[index].height  else @markers_conf.length
           "marker_title":     if @markers[index].title    then @markers[index].title   else null
-          "marker_labelContent":  if @markers[index].labelContent   then @marker[index].labelContent   else null
+          "marker_labelContent":  if @markers[index].labelContent   then @markers[index].labelContent   else null
           "marker_anchor":    if @markers[index].marker_anchor  then @markers[index].marker_anchor  else null
           "shadow_anchor":    if @markers[index].shadow_anchor  then @markers[index].shadow_anchor  else null
           "shadow_picture":   if @markers[index].shadow_picture then @markers[index].shadow_picture else null
