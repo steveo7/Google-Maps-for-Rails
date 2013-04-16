@@ -18,6 +18,7 @@ class @Gmaps4RailsGoogle extends Gmaps4Rails
       clusterer_maxZoom:       5
       custom_cluster_pictures: null
       custom_infowindow_class: null
+      labelAnchor: new google.maps.Point(22, 0)
 
     @mergeWithDefault("map_options")
     @mergeWithDefault("markers_conf")
@@ -104,9 +105,9 @@ class @Gmaps4RailsGoogle extends Gmaps4Rails
     markerLatLng = @createLatLng(args.Lat, args.Lng)
     #Marker sizes are expressed as a Size of X,Y
     if args.marker_picture == "" and args.rich_marker == null
-      defaultOptions = {position: markerLatLng, map: @serviceObject, title: args.marker_title, draggable: args.marker_draggable, zIndex: args.zindex}
+      defaultOptions = {position: markerLatLng, map: @serviceObject, title: args.marker_title, labelContent: args.marker_labelContent, draggable: args.marker_draggable, zIndex: args.zindex}
       mergedOptions  = @mergeObjectWithDefault @markers_conf.raw, defaultOptions
-      return new google.maps.Marker mergedOptions
+      return new MarkerWithLabel mergedOptions
 
     if (args.rich_marker != null)
       return new RichMarker({
@@ -128,7 +129,7 @@ class @Gmaps4RailsGoogle extends Gmaps4Rails
     shadowImage = @createOrRetrieveImage(args.shadow_picture, args.shadow_width, args.shadow_height, shadowAnchorPosition)
     defaultOptions = {position: markerLatLng, map: @serviceObject, icon: markerImage, title: args.marker_title, draggable: args.marker_draggable, shadow: shadowImage,  zIndex: args.zindex}
     mergedOptions  = @mergeObjectWithDefault @markers_conf.raw, defaultOptions
-    return new google.maps.Marker mergedOptions
+    return new MarkerWithLabel mergedOptions
 
   #checks if obj is included in arr Array and returns the position or false
   includeMarkerImage : (arr, obj) ->
